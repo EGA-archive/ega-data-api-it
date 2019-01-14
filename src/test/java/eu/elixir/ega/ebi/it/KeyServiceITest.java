@@ -23,6 +23,7 @@ public class KeyServiceITest extends KeyBase {
 
     /**
      * Verify the api call /keys/filekeys/{fileId} and check status is {@link org.apache.http.HttpStatus#SC_OK}.
+     * Also checks the response body should not be null.
      */
     @Test
     public void testGetFileKey() {
@@ -33,6 +34,7 @@ public class KeyServiceITest extends KeyBase {
 
     /**
      * Verify the api call /keys/retrieve/{keyId}/public and check status is {@link org.apache.http.HttpStatus#SC_OK}.
+     * Also compares the keyId should be same.
      */
     @Test
     public void testGetPublicKeyFromPrivate() {
@@ -43,6 +45,7 @@ public class KeyServiceITest extends KeyBase {
 
     /**
      * Verify the api call /keys/retrieve/{keyId}/private/object and check status is {@link org.apache.http.HttpStatus#SC_OK}.
+     * Also compares the keyId should be same.
      */
     @Test
     public void testGetPrivateKey() {
@@ -53,6 +56,7 @@ public class KeyServiceITest extends KeyBase {
 
     /**
      * Verify the api call /keys/retrieve/{keyId}/private/path and check status is {@link org.apache.http.HttpStatus#SC_OK}.
+     * Also checks the response body should not be null.
      */
     @Test
     public void testGetPrivateKeyPath() {
@@ -66,6 +70,7 @@ public class KeyServiceITest extends KeyBase {
 
     /**
      * Verify the api call /keys/retrieve/{keyId}/private/bin and check status is {@link org.apache.http.HttpStatus#SC_OK}.
+     * Also checks the response body should not be null.
      */
     @Test
     public void testGetPrivateKeyByte() {
@@ -86,6 +91,7 @@ public class KeyServiceITest extends KeyBase {
 
     /**
      * Verify the api call /keys/retrieve/{keyType}/ids and check status is {@link org.apache.http.HttpStatus#SC_OK}.
+     * Also compares the keyId should be same.
      */
     @Test
     public void testGetPublicKeyIds() {

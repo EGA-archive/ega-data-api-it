@@ -30,9 +30,3 @@ ega.sharedpass.path = D:/ebi/config-files/testing.txt
 ega.publickey.url =
 ega.legacy.path = D:/ebi/config-files/legacy.txt
 ```
-
-
-
-
-
-
