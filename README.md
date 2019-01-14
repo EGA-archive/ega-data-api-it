@@ -18,8 +18,7 @@ Before running this integration test suite the `ega-data-api` must be running so
 $ mvn test
 ```
 
-
-##
+## Configurations
 ### Key server
 The key server should have following properties updated in the properties file(keyserver.properties). These below sample files `sample.txt`, `pass.txt`, `testing.txt` & `legacy.txt` are provided in `src/test/resources/key` Copy these in your local system and update the path below as per yours.
 
