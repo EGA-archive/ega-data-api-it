@@ -12,7 +12,7 @@ This project is your standard Maven Java project with `src` folders and `POM.xml
 
 
 ## How to Test
-Before running this integration test suite the `ega-data-api` must be running somewhere and its url should be updated in `src/main/resources/`
+Before running this integration test suite the `ega-data-api` must be running somewhere and its url and other properties should be updated in `src/main/resources/config.properties`
 
 ```
 $ mvn test
