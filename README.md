@@ -12,10 +12,16 @@ This project is your standard Maven Java project with `src` folders and `POM.xml
 
 
 ## How to Test
-Before running this integration test suite the `ega-data-api` must be running somewhere and its url and other properties should be updated in `src/main/resources/config.properties`
+The `ega-data-api` application must be running somewhere before running this integration test suite. To run the integration test use below command
 
 ```
 $ mvn test
+```
+
+The default value for properties are written is pom.xml inside `<systemPropertyVariables>` for example the key server host is assumed to be running on `http://localhost`. To override this value at run time use below command
+
+```
+$ mvn test "-Dkey.uri=http://localhost2"
 ```
 
 ## Configurations

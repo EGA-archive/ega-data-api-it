@@ -1,7 +1,6 @@
 package eu.elixir.ega.ebi.it;
 
-import java.io.IOException;
-import java.util.Properties;
+import java.util.InputMismatchException;
 
 import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.http.ContentType;
@@ -14,15 +13,17 @@ public class KeyBase {
 
     public KeyBase() {
         try {
-            Properties props = new Properties();
-            props.load(getClass().getClassLoader().getResourceAsStream("config.properties"));
+            RestAssured.baseURI = System.getProperty("key.host");
 
-            RestAssured.baseURI = props.getProperty("api.key.uri");
-            RestAssured.port = Integer.valueOf(props.getProperty("api.key.port"));
-            fileId = props.getProperty("api.key.fileId");
-            keyId = props.getProperty("api.key.keyId");
+            if (RestAssured.baseURI == null) {
+                throw new InputMismatchException("Key service host url is null. Pls check configuration in pom.xml.");
+            }
 
-        } catch (IOException ex) {
+            RestAssured.port = Integer.parseInt(System.getProperty("key.port"));
+            fileId = System.getProperty("key.fileId");
+            keyId = System.getProperty("key.keyId");
+
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
 
