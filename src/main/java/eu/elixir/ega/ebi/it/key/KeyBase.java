@@ -1,4 +1,4 @@
-package eu.elixir.ega.ebi.it;
+package eu.elixir.ega.ebi.it.key;
 
 import java.util.InputMismatchException;
 
@@ -7,7 +7,7 @@ import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.specification.RequestSpecification;
 
 public class KeyBase {
-    public RequestSpecification REQUEST;
+    RequestSpecification REQUEST;
     String fileId;
     String keyId;
 
@@ -20,8 +20,8 @@ public class KeyBase {
             }
 
             RestAssured.port = Integer.parseInt(System.getProperty("key.port"));
-            fileId = System.getProperty("key.fileId");
-            keyId = System.getProperty("key.keyId");
+            fileId = System.getProperty("fileId");
+            keyId = System.getProperty("keyId");
 
         } catch (Exception ex) {
             ex.printStackTrace();
