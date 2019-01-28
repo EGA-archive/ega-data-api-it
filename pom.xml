@@ -20,6 +20,8 @@
 		<json.version>20180813</json.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<lombok.version>1.16.16</lombok.version>
+
 	</properties>
 
 	<dependencies>
@@ -43,7 +45,11 @@
 			<artifactId>json</artifactId>
 			<version>${json.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -54,10 +60,14 @@
 				<version>2.22.0</version>
 				<configuration>
 					<systemPropertyVariables>
+						<fileId>EGAF00000000014</fileId>
+						<keyId>-6324474004599780284</keyId>												
+						<datasetId>EGAD00010000919</datasetId>
+						<indexId>EGAI00000000001</indexId>
 						<key.host>http://localhost</key.host>
 						<key.port>9095</key.port>
-						<key.fileId>EGAF00000000014</key.fileId>
-						<key.keyId>-6324474004599780284</key.keyId>
+						<file.host>http://localhost</file.host>
+						<file.port>9051</file.port>
 					</systemPropertyVariables>
 				</configuration>
 			</plugin>

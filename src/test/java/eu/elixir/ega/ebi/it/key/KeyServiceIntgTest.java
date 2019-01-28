@@ -1,4 +1,4 @@
-package eu.elixir.ega.ebi.it;
+package eu.elixir.ega.ebi.it.key;
 
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.hamcrest.CoreMatchers.containsString;
@@ -12,13 +12,15 @@ import org.junit.Test;
 
 import com.jayway.restassured.response.Response;
 
+import eu.elixir.ega.ebi.it.key.KeyBase;
+
 /**
  * Class to do the integration test for KeyController in ega-data-api-key.
  * 
  * @author amohan
  *
  */
-public class KeyServiceITest extends KeyBase {
+public class KeyServiceIntgTest extends KeyBase {
 
     private final static String KEY_FILEKEYS = "/keys/filekeys/";    
     private final static String KEY_RETRIEVE = "/keys/retrieve/";
