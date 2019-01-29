@@ -13,11 +13,10 @@ public class FileDatabaseBase {
     String datasetId;
     String fileId;
     String indexId;
-    String keyId;
 
     public FileDatabaseBase() {
         try {
-            RestAssured.baseURI = System.getProperty("file.host");
+            RestAssured.baseURI = System.getProperty("file.url");
 
             if (RestAssured.baseURI == null) {
                 throw new InputMismatchException("fileservice host url is null. Pls check configuration in pom.xml.");
