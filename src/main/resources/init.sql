@@ -119,4 +119,6 @@ INSERT INTO dev_ega_file.file VALUES('EGAF00000000014', 's3://elixir-excelerate/
 
 INSERT INTO dev_ega_file.file_dataset values('EGAD00010000919', 'EGAF00000000014');
 
+INSERT INTO dev_ega_file.file_index_file values('EGAF00000000014', 'EGAI00000000001');
+
 INSERT INTO file_key_test.encryption_key VALUES(1, 'alias', 'encryption_key');
