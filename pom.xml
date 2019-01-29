@@ -64,9 +64,9 @@
 						<keyId>-6324474004599780284</keyId>												
 						<datasetId>EGAD00010000919</datasetId>
 						<indexId>EGAI00000000001</indexId>
-						<key.host>http://localhost</key.host>
+						<key.url>http://localhost</key.url>
 						<key.port>9095</key.port>
-						<file.host>http://localhost</file.host>
+						<file.url>http://localhost</file.url>
 						<file.port>9051</file.port>
 					</systemPropertyVariables>
 				</configuration>

@@ -13,7 +13,7 @@ public class KeyBase {
 
     public KeyBase() {
         try {
-            RestAssured.baseURI = System.getProperty("key.host");
+            RestAssured.baseURI = System.getProperty("key.url");
 
             if (RestAssured.baseURI == null) {
                 throw new InputMismatchException("Key service host url is null. Pls check configuration in pom.xml.");

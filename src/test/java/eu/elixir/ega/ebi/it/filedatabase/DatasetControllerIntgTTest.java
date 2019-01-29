@@ -21,7 +21,7 @@ public class DatasetControllerIntgTTest extends FileDatabaseBase {
     private final static String DATASET_CONTROLLER = "/datasets/";    
     
     /**
-     * Verify the api call /datasets/{fileId}/files and check status is {@link org.apache.http.HttpStatus#SC_OK}.
+     * Verify the api call /datasets/{datasetId}/files and check status is {@link org.apache.http.HttpStatus#SC_OK}.
      * Also checks the response fileId & datasetId.
      */
     @Test
@@ -37,7 +37,7 @@ public class DatasetControllerIntgTTest extends FileDatabaseBase {
     }
     
     /**
-     * Verify the api call /datasets/{fileId}/files and check status is {@link org.apache.http.HttpStatus#SC_OK}.
+     * Verify the api call /datasets/{datasetId}/files and check status is {@link org.apache.http.HttpStatus#SC_OK}.
      * Also passing wrong Id 000 and expecting the response body to be empty array i.e, []
      */
     @Test

@@ -26,7 +26,7 @@ $ mvn test
 The default value for properties are written is pom.xml inside `<systemPropertyVariables>` for example the key server host is assumed to be running on `http://localhost`. To override this value at run time use below command
 
 ```
-$ mvn test "-Dkey.host=http://localhost2"
+$ mvn test "-Dkey.url=http://localhost2"
 ```
 
 ## Configurations
