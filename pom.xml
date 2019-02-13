@@ -68,6 +68,9 @@
 						<key.port>9095</key.port>
 						<file.url>http://localhost</file.url>
 						<file.port>9051</file.port>
+						<res.url>http://localhost</res.url>
+						<res.port>9092</res.port>
+						<res.file.checksum>4597602934088277f77f3e4f6fb326a7</res.file.checksum>
 					</systemPropertyVariables>
 				</configuration>
 			</plugin>
