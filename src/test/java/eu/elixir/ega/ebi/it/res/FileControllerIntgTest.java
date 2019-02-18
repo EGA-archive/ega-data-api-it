@@ -1,14 +1,9 @@
 package eu.elixir.ega.ebi.it.res;
 
+import static eu.elixir.ega.ebi.it.common.Common.getMd5DigestFromResponse;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
-
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.math.BigInteger;
-import java.security.DigestInputStream;
-import java.security.MessageDigest;
 
 import org.apache.http.HttpStatus;
 import org.json.JSONObject;
@@ -37,33 +32,7 @@ public class FileControllerIntgTest extends ResBase {
     @Test
     public void testGetArchiveFile() throws Exception {
         final Response response = REQUEST.get(FILE_PATH + fileId + "?destinationFormat=plain");
-        final InputStream inputStream = response.body().asInputStream();
-
-        final MessageDigest md = MessageDigest.getInstance("MD5");
-        // Read Content for MD5
-        final DigestInputStream dIn = new DigestInputStream(inputStream, md);
-
-        // NullOutputStream
-        final OutputStream nullOutputStream = new OutputStream() {
-            @Override
-            public void write(int b) {
-            }
-
-            @Override
-            public void write(byte[] b) {
-            }
-        };
-
-        // Read
-        byte[] b = new byte[10 * 1024 * 1024];
-        int s = dIn.read(b);
-        while (s > -1) {
-            nullOutputStream.write(b);
-            s = dIn.read(b);
-        }
-        dIn.close();
-
-        assertTrue(getMd5DigestString(md).equalsIgnoreCase(unencryptedChecksum));
+        assertTrue(getMd5DigestFromResponse(response).equalsIgnoreCase(unencryptedChecksum));
     }
 
     /**
@@ -80,15 +49,6 @@ public class FileControllerIntgTest extends ResBase {
         final int status = jsonObject.getInt("status");
 
         assertThat(status, equalTo(HttpStatus.SC_NOT_FOUND));
-    }
-
-    private String getMd5DigestString(MessageDigest md) {
-        final BigInteger bigInt = new BigInteger(1, md.digest());
-        String mDigest = bigInt.toString(16);
-        while (mDigest.length() < 32) {
-            mDigest = "0" + mDigest;
-        }
-        return mDigest;
     }
 
 }
