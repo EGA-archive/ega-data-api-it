@@ -40,3 +40,14 @@ ega.sharedpass.path = D:/ebi/config-files/testing.txt
 ega.publickey.url =
 ega.legacy.path = D:/ebi/config-files/legacy.txt
 ```
+
+### Dataedge
+The dataedge server should have following properties updated in the properties file(dataedge.properties)
+```
+security.oauth2.resource.jwt.key-value: '-----BEGIN PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDdlatRjRjogo3WojgGHFHYLugd
+UWAY9iR3fy4arWNA1KoS8kVw33cJibXr8bvwUAUparCwlvdbH6dvEOfou0/gCFQs
+HUfQrSDv+MuSUMAe8jzKE4qW+jK+xQU9a03GUnKHkkle+Q0pX/g6jXZ7r1/xAK5D
+o2kQ+X5xK9cipRgEKwIDAQAB
+-----END PUBLIC KEY-----'
+```
