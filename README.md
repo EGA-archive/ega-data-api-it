@@ -48,6 +48,8 @@ The res server should have following properties updated in the properties file(r
 ega.sharedpass.path = D:/ebi/config-files/ega.shared.pass
 ```
 
+Note: The encrypted file `src/test/resources/key/EGAF00000000014.enc` should be uploaded in your s3/minio server.
+
 
 ### Dataedge
 The dataedge server should have following properties updated in the properties file(dataedge.properties)
