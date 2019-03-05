@@ -19,7 +19,8 @@ import com.jayway.restassured.response.Response;
  */
 public class FileControllerIntgTest extends ResBase {
 
-    private final static String FILE_PATH = "/file/archive/";
+    private final static String FILE_PATH = "/file";
+    private final static String FILE_ARCHIVE_PATH = "/file/archive/";
     private final static String KEY_ID_ZERO = "000";
 
     /**
@@ -31,7 +32,7 @@ public class FileControllerIntgTest extends ResBase {
      */
     @Test
     public void testGetArchiveFile() throws Exception {
-        final Response response = REQUEST.get(FILE_PATH + fileId + "?destinationFormat=plain");
+        final Response response = REQUEST.get(FILE_ARCHIVE_PATH + fileId + "?destinationFormat=plain");
         assertTrue(getMd5DigestFromResponse(response).equalsIgnoreCase(unencryptedChecksum));
     }
 
@@ -44,11 +45,21 @@ public class FileControllerIntgTest extends ResBase {
      */
     @Test
     public void testGetArchiveFileForZeroKeyId() throws Exception {
-        final Response response = REQUEST.get(FILE_PATH + KEY_ID_ZERO + "?destinationFormat=plain");
+        final Response response = REQUEST.get(FILE_ARCHIVE_PATH + KEY_ID_ZERO + "?destinationFormat=plain");
         final JSONObject jsonObject = new JSONObject(response.body().asString());
         final int status = jsonObject.getInt("status");
 
         assertThat(status, equalTo(HttpStatus.SC_NOT_FOUND));
     }
 
+    /**
+     * Verify the api call /file and compares the response body md5.
+     * 
+     * @throws Exception
+     */
+    @Test
+    public void testGetFile() throws Exception {
+        final Response response = REQUEST.get(FILE_PATH +"?sourceKey="+sourceKey+"&sourceIV="+sourceIV+"&filePath="+filePath+"&destinationFormat=plain");
+        assertTrue(getMd5DigestFromResponse(response).equalsIgnoreCase(unencryptedChecksum));
+    }
 }

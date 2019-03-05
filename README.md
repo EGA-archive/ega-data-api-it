@@ -31,15 +31,23 @@ $ mvn test "-Dkey.url=http://localhost2"
 
 ## Configurations
 ### Key server
-The key server should have following properties updated in the properties file(keyserver.properties). These below sample files `sample.txt`, `pass.txt`, `testing.txt` & `legacy.txt` are provided in `src/test/resources/key` Copy these in your local system and update the path below as per yours.
+The key server should have following properties updated in the properties file(keyserver.properties). These below sample files `ega.sec`, `ega.sec.pass`, `ega.shared.pass`, `ega.pub` & `legacy.pass` are provided in `src/test/resources/key` Copy these in your local system and update the path below as per yours.
 
 ```
-ega.key.path = D:/ebi/config-files/sample.txt
-ega.keypass.path = D:/ebi/config-files/pass.txt
-ega.sharedpass.path = D:/ebi/config-files/testing.txt
-ega.publickey.url =
-ega.legacy.path = D:/ebi/config-files/legacy.txt
+ega.key.path = D:/ebi/config-files/ega.sec
+ega.keypass.path = D:/ebi/config-files/ega.sec.pass
+ega.sharedpass.path = D:/ebi/config-files/ega.shared.pass
+ega.publickey.url = D:/ebi/config-files/ega.pub
+ega.legacy.path = D:/ebi/config-files/legacy.pass
 ```
+
+### Res server
+The res server should have following properties updated in the properties file(res2.properties). These below sample files `ega.shared.pass` is provided in `src/test/resources/key` Copy these in your local system and update the path below as per yours.
+
+```
+ega.sharedpass.path = D:/ebi/config-files/ega.shared.pass
+```
+
 
 ### Dataedge
 The dataedge server should have following properties updated in the properties file(dataedge.properties)
