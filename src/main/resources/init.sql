@@ -1,6 +1,18 @@
 create schema file_key_test;
 create schema dev_ega_file;
 
+CREATE SEQUENCE dev_ega_file.download_log_new_download_log_id_seq
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 9223372036854775807
+START 1;
+
+CREATE SEQUENCE dev_ega_file.event_event_id_seq
+INCREMENT BY 1
+MINVALUE 1
+MAXVALUE 9223372036854775807
+START 1;
+
 CREATE TABLE dev_ega_file.file_key (
 	file_id  varchar(128) NULL,
 	encryption_key_id int8 NULL,
@@ -54,11 +66,9 @@ CREATE TABLE dev_ega_file.file (
     last_updated  timestamp NOT NULL DEFAULT now()
 );
 
-
-
 -- Event
 CREATE TABLE dev_ega_file.event (
-       event_id  int8,
+       event_id  int8 NOT NULL DEFAULT nextval('dev_ega_file.event_event_id_seq'::regclass),
        client_ip varchar(45) NOT NULL,
        event varchar(256) NOT NULL,
        event_type varchar(256) NOT NULL,
@@ -69,7 +79,7 @@ CREATE TABLE dev_ega_file.event (
 
 -- Download Log
 CREATE TABLE dev_ega_file.download_log (
-       download_log_id int8,
+       download_log_id int8 NOT NULL DEFAULT nextval('dev_ega_file.download_log_new_download_log_id_seq'::regclass),
        client_ip varchar(45) NOT NULL,
        api varchar(45) NOT NULL,
        email varchar(256) NOT NULL,
@@ -91,4 +101,3 @@ INSERT INTO dev_ega_file.file(file_id, file_name, file_path, file_type, file_siz
 INSERT INTO dev_ega_file.file_key(file_id, encryption_key_id, encryption_algorithm) values ('EGAF00000000014', 1 , 'aes256' );
 
 INSERT INTO file_key_test.encryption_key(encryption_key_id, encryption_key, alias) values (1, 'DfHmQA3Zm0sZW+MzbKcwEBytsPRTgDhJOdwsNmc=', 'Base64');
-

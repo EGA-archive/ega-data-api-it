@@ -78,33 +78,4 @@ public class FileControllerIntgTest extends FileDatabaseBase {
         assertThat(jsonArray.length(), equalTo(0));
     }
     
-    /**
-     * Verify the api call /file/{fileId}/index and check status is {@link org.apache.http.HttpStatus#SC_OK}.
-     * Also checks the response fileId & indexFileId.
-     */
-    @Test
-    public void testGetFileIndex() {
-        final Response response = REQUEST.get(FILE_CONTROLLER + fileId + "/index");
-        JSONArray jsonArray = new JSONArray(response.body().asString()); 
-        JSONObject jsonObject = jsonArray.getJSONObject(0);
-        
-        response.then().assertThat().statusCode(SC_OK);
-        assertThat(jsonArray.length(), equalTo(1));
-        assertThat(jsonObject.getString("fileId"), equalTo(fileId));
-        assertThat(jsonObject.getString("indexFileId"), equalTo(indexId));
-    }
-    
-    /**
-     * Verify the api call /file/{fileId}/index and check status is {@link org.apache.http.HttpStatus#SC_OK}.
-     * Also passing wrong Id 000 and expecting the response body to be empty array i.e, []
-     */
-    @Test
-    public void testGetFileIndexForZeroId() {
-        final Response response = REQUEST.get(FILE_CONTROLLER + ID_ZERO + "/index");
-        JSONArray jsonArray = new JSONArray(response.body().asString()); 
-        
-        response.then().assertThat().statusCode(SC_OK);
-        assertThat(jsonArray.length(), equalTo(0));
-    }
-
 }
